@@ -26,7 +26,7 @@ func main() {
 }
 
 func exibeIntroducao() {
-	nome := "Douglas"
+	nome := "Adriano"
 	versao := 1.1
 	fmt.Println("Olá, sr.", nome)
 	fmt.Println("Este programa está na versão", versao)

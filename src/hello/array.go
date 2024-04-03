@@ -7,10 +7,13 @@ import (
 )
 
 func main() {
-
+	//exibeNomes()
 	exibeIntroducao()
+
+	//for infinito
 	for {
 		exibeMenu()
+
 		comando := leComando()
 
 		switch comando {
@@ -51,7 +54,24 @@ func leComando() int {
 
 func iniciarMonitoramento() {
 	fmt.Println("Monitorando...")
-	site := "https://www.alura.com.br"
+	//Array
+	//var sites [4]string
+	//sites[0] = "https://random-status-code.herokuapp.com/"
+	//sites[1] = "https://www.alura.com.br"
+	//sites[2] = "https://www.caelum.com.br"
+
+	//slice
+	sites := []string{"https://random-status-code.herokuapp.com/", "https://www.alura.com.br", "https://www.caelum.com.br"}
+
+	//fmt.Println(sites)
+
+	//for i := 0; i < len(sites); i++ { // for convencional
+	for i, site := range sites {
+		//fmt.Println(sites[i])
+		fmt.Println("Estou passando na posição", i, "do meu slice e essa posicao tem o site:", site)
+	}
+
+	site := "https://random-status-code.herokuapp.com/"
 	resp, _ := http.Get(site) //O get retorna resposta e erro quando quero iguinorar uma delas coloco _
 
 	if resp.StatusCode == 200 {
@@ -61,3 +81,12 @@ func iniciarMonitoramento() {
 	}
 
 }
+
+// slice um array dinamico
+//func exibeNomes() {
+//	nomes := []string{"Adriano", "Allan", "Fabiana"}
+//	nomes = append(nomes, "Aparecida")
+//	fmt.Println(nomes)
+//	fmt.Println(reflect.TypeOf(nomes))
+//	fmt.Println("O meu slice tem", len(nomes))
+//}
